@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listando pessoas</title>
+</head>
+<body>
+
+<h1>Pessoas</h1>
+<hr>
+
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Nome</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for linha in lista %}
+        <tr>
+            <td>{{ linha.idPessoa }}</td>
+            <td>{{ linha.nome }}</td>
+            <td><a href="/editar?id={{ linha.idPessoa }}"> editar </a> </td>
+            <td><a href="/excluir?id={{ linha.idPessoa }}"> excluir </a> </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<p><a href="/inserir">Cadastrar pessoa</a></p>
+</body>
+</html>

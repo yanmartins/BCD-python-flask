@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editando pessoa</title>
+</head>
+<body>
+<p1>Editar pessoa</p1>
+<form action="{{ url_for('editar_pessoa') }}" method="POST">
+
+    <label>Nome</label>
+    <input type="text" name="nome" value="{{ pessoa.nome }}">
+    <input type="hidden" name="id" value="{{ pessoa.idPessoa }}">
+
+    {% for telefone in pessoa.telefones_collection %}
+        <BR><label>Tel:</label>
+        {% set tele = 'tele-' ~ telefone.idTelefone %}
+        <input type="text" value="{{ telefone.numero }}" name="{{ tele }}">
+    {% endfor %}
+
+    <BR><button type="submit">Atualizar</button>
+</form>
+</body>
+</html>

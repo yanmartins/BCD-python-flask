@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Excluindo pessoa</title>
+</head>
+<body>
+<p1>Excluir pessoa</p1>
+
+<form action="{{ url_for('excluir_pessoa') }}" method="POST">
+    <input type="hidden" name="id" value="{{ pessoa.idPessoa }}">
+    <p> Você realmente deseja excluir <b>{{ pessoa.nome }}</b>?</p>
+    <button type="submit">Confirma</button>
+</form>
+
+<p><a href="/listar">Voltar</a> </p>
+</body>
+</html>
